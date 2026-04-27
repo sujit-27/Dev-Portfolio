@@ -1,3 +1,7 @@
+import mailforgeImg from "../assets/projects/MailForge.png"
+import certiquestImg from "../assets/projects/CertiQuest.png"
+import trendoraImg from "../assets/projects/Trendora.png"
+
 
 // ─── IDENTITY ────────────────────────────────────────────────────────────────
 export const IDENTITY = {
@@ -58,7 +62,7 @@ export const PROJECTS = [
     tags: ['Java', 'Spring Boot', 'Kafka', 'Docker', 'GRPC'],
     github: 'https://github.com/sujit-27/Mailforge',
     live: 'https://mail-forge-plum.vercel.app/',
-    image: '/src/assets/projects/mailforge.png',
+    image: mailforgeImg,
   },
   {
     id: 2,
@@ -69,7 +73,7 @@ export const PROJECTS = [
     tags: ['Java', 'Spring Boot', 'Clerk', 'React', 'Tailwind'],
     github: 'https://github.com/sujit-27/CertiQuest',
     live: 'https://certi-quest-gamma.vercel.app/',
-    image: '/src/assets/projects/certiquest.png',
+    image: certiquestImg,
   },
   {
     id: 3,
@@ -80,7 +84,7 @@ export const PROJECTS = [
     tags: ['React', 'Redux', 'Appwrite', 'Tailwind'],
     github: 'https://github.com/sujit-27/Trendora',
     live: 'https://trendora-gules.vercel.app/',
-    image: '/src/assets/projects/trendora.png',
+    image: trendoraImg,
   },
 ];
 
