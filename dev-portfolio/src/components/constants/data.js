@@ -1,6 +1,6 @@
-import mailforgeImg from "../assets/projects/MailForge.png"
-import certiquestImg from "../assets/projects/CertiQuest.png"
-import trendoraImg from "../assets/projects/Trendora.png"
+import mailforgeImg from "../../assets/projects/MailForge.png"
+import certiquestImg from "../../assets/projects/CertiQuest.png"
+import trendoraImg from "../../assets/projects/Trendora.png"
 
 
 // ─── IDENTITY ────────────────────────────────────────────────────────────────
