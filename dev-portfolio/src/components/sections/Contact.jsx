@@ -646,43 +646,55 @@ export default function ContactSection() {
   }
 
   const handleSend = async () => {
-    const e = validate()
+    const e = validate();
+
     if (Object.values(e).some(Boolean)) {
-      setErrors(e)
-      return
+      setErrors(e);
+      return;
     }
 
-    if (!serviceId || !templateId || !publicKey) {
-      console.error("EmailJS ENV missing")
-      setFState('error')
-      return
+    if (!serviceId || !publicKey) {
+      console.error("EmailJS ENV missing");
+      setFState('error');
+      return;
     }
 
-    setFState('sending')
+    setFState('loading');
+
+    const data = {
+      name: fields.name,
+      email: fields.email,
+      message: fields.message,
+    };
 
     try {
+      // 1️⃣ Send to YOU
       await emailjs.send(
         serviceId,
-        templateId,
-        {
-          name: fields.name,
-          email: fields.email,
-          message: fields.message,
-        },
+        "template_qfz94u9",
+        data,
         publicKey
-      )
+      );
 
-      setFState('sent')
-      setFields(INIT)
+      // 2️⃣ Auto reply to USER
+      await emailjs.send(
+        serviceId,
+        "template_inyehkw",
+        data,
+        publicKey
+      );
+
+      setFState('sent');
+      setFields(INIT);
+      setErrors({});
 
     } catch (err) {
-      console.error("Email error:", err)
-      setFState('error')
+      console.error("Email error:", err);
+      setFState('error');
 
-      // optional: reset back to idle after some time
-      setTimeout(() => setFState('idle'), 3000)
+      setTimeout(() => setFState('idle'), 3000);
     }
-  }
+  };
 
   return (
     <>
@@ -1112,4 +1124,4 @@ export default function ContactSection() {
       </section>
     </>
   )
-}
+            }
